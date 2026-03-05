@@ -586,7 +586,7 @@ footer{background:var(--dark);padding:44px 60px;display:flex;align-items:center;
       <button class="send-btn send-email" onclick="doSend('email')">
         <span class="send-icon">📧</span>
         <span class="send-label">Email</span>
-        <span class="send-handle">tunkafo771@gmail.com</span>
+        <span class="send-handle"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="96e2e3f8fdf7f0f9a1a1a7d6f1fbf7fffab8f5f9fb">[email&#160;protected]</a></span>
       </button>
     </div>
     <button class="send-close" onclick="closeSendModal()">✕ Yopish</button>
@@ -594,26 +594,40 @@ footer{background:var(--dark);padding:44px 60px;display:flex;align-items:center;
 </div>
 
 <style>
-.send-modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.75);z-index:999;align-items:center;justify-content:center;backdrop-filter:blur(4px)}
+.send-modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.8);z-index:9999;align-items:center;justify-content:center;backdrop-filter:blur(4px);padding:16px}
 .send-modal.open{display:flex}
-.send-modal-box{background:#161616;border:1px solid rgba(201,168,76,.3);padding:44px 40px;max-width:460px;width:90%;text-align:center;animation:fadeUp .35s ease both}
-.send-modal-title{font-family:"Cormorant Garamond",serif;font-size:2rem;color:var(--cream);font-weight:300;margin-bottom:8px}
-.send-modal-sub{font-size:.8rem;color:var(--muted);letter-spacing:.08em;margin-bottom:32px}
-.send-btns{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:20px}
-.send-btn{background:#1e1e1e;border:1px solid rgba(201,168,76,.2);padding:22px 16px;cursor:none;display:flex;flex-direction:column;align-items:center;gap:8px;transition:all .3s;position:relative;overflow:hidden}
+.send-modal-box{background:#161616;border:1px solid rgba(201,168,76,.3);padding:36px 28px;max-width:460px;width:100%;text-align:center;animation:fadeUp .35s ease both}
+.send-modal-title{font-family:"Cormorant Garamond",serif;font-size:1.8rem;color:var(--cream);font-weight:300;margin-bottom:6px}
+.send-modal-sub{font-size:.78rem;color:var(--muted);letter-spacing:.06em;margin-bottom:28px;line-height:1.6}
+.send-btns{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:18px}
+.send-btn{background:#1e1e1e;border:1px solid rgba(201,168,76,.2);padding:22px 12px;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:8px;transition:all .3s;position:relative;overflow:hidden;-webkit-tap-highlight-color:transparent;touch-action:manipulation}
 .send-btn::before{content:"";position:absolute;inset:0;opacity:0;transition:opacity .3s}
 .send-tg::before{background:linear-gradient(135deg,rgba(34,158,217,.15),rgba(34,158,217,.05))}
 .send-email::before{background:linear-gradient(135deg,rgba(201,168,76,.15),rgba(201,168,76,.05))}
-.send-btn:hover::before{opacity:1}
-.send-tg:hover{border-color:#229ED9;transform:translateY(-3px);box-shadow:0 8px 24px rgba(34,158,217,.2)}
-.send-email:hover{border-color:var(--gold);transform:translateY(-3px);box-shadow:0 8px 24px rgba(201,168,76,.2)}
-.send-icon{font-size:2rem}
-.send-label{font-size:.85rem;letter-spacing:.12em;text-transform:uppercase;color:var(--cream);font-weight:500}
-.send-handle{font-size:.72rem;color:var(--muted)}
-.send-btn.sent{border-color:#4CAF50!important;background:rgba(76,175,80,.1)!important}
-.send-btn.sent .send-icon::after{content:" ✓"}
-.send-close{background:none;border:1px solid rgba(201,168,76,.15);color:var(--muted);padding:10px 28px;font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;cursor:none;transition:all .3s;font-family:"DM Sans",sans-serif;margin-top:4px}
-.send-close:hover{border-color:var(--gold);color:var(--gold)}
+.send-btn:hover::before,.send-btn:active::before{opacity:1}
+.send-tg:hover,.send-tg:active{border-color:#229ED9;transform:translateY(-2px);box-shadow:0 8px 24px rgba(34,158,217,.25)}
+.send-email:hover,.send-email:active{border-color:var(--gold);transform:translateY(-2px);box-shadow:0 8px 24px rgba(201,168,76,.25)}
+.send-icon{font-size:2.2rem;line-height:1}
+.send-label{font-size:.82rem;letter-spacing:.1em;text-transform:uppercase;color:var(--cream);font-weight:500}
+.send-handle{font-size:.68rem;color:var(--muted)}
+.send-btn.sent{border-color:#4CAF50!important;background:rgba(76,175,80,.12)!important}
+.send-btn.sent .send-label{color:#4CAF50}
+.send-close{background:none;border:1px solid rgba(201,168,76,.15);color:var(--muted);padding:12px 32px;font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;transition:all .3s;font-family:"DM Sans",sans-serif;-webkit-tap-highlight-color:transparent;touch-action:manipulation}
+.send-close:hover,.send-close:active{border-color:var(--gold);color:var(--gold)}
+@media(max-width:480px){
+  .send-modal-box{padding:24px 16px}
+  .send-modal-title{font-size:1.4rem}
+  .send-modal-sub{font-size:.74rem;margin-bottom:20px}
+  .send-btns{gap:10px}
+  .send-btn{padding:18px 10px;gap:6px}
+  .send-icon{font-size:1.8rem}
+  .send-label{font-size:.72rem}
+  .send-handle{font-size:.6rem}
+  .send-close{padding:10px 24px}
+}
+@media(hover:none),(pointer:coarse){
+  body,a,button,input,select,textarea,.nav-cta,.ham,.mob-close,.srv-card,.work-card,.form-submit,.custom-select,.cs-option,.float-btn{cursor:auto!important}
+}
 </style>
 
     <!-- INFO -->
@@ -653,16 +667,27 @@ footer{background:var(--dark);padding:44px 60px;display:flex;align-items:center;
   <a href="#home" class="f-up">↑ Yuqoriga</a>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 // Cursor
+// Cursor — faqat sichqonchali qurilmalarda
+const isMobile = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
 const cur=document.getElementById("cur"),curf=document.getElementById("curf");
-let mx=0,my=0,fx=0,fy=0;
-document.addEventListener("mousemove",e=>{mx=e.clientX;my=e.clientY;cur.style.left=mx-5+"px";cur.style.top=my-5+"px";});
-(function af(){fx+=(mx-fx)*.1;fy+=(my-fy)*.1;curf.style.left=fx-18+"px";curf.style.top=fy-18+"px";requestAnimationFrame(af);})();
-document.querySelectorAll("a,button,input,select,textarea").forEach(el=>{
-  el.addEventListener("mouseenter",()=>{cur.classList.add("cursor-hover");curf.style.transform="scale(1.5)";});
-  el.addEventListener("mouseleave",()=>{cur.classList.remove("cursor-hover");curf.style.transform="scale(1)";});
-});
+if(isMobile){
+  // Telefonda oddiy kursor
+  document.body.style.cursor="auto";
+  cur.style.display="none";
+  curf.style.display="none";
+  document.querySelectorAll("[style*='cursor:none'],[style*='cursor: none']").forEach(el=>el.style.cursor="auto");
+} else {
+  // Kompyuterda custom kursor
+  let mx=0,my=0,fx=0,fy=0;
+  document.addEventListener("mousemove",e=>{mx=e.clientX;my=e.clientY;cur.style.left=mx-5+"px";cur.style.top=my-5+"px";});
+  (function af(){fx+=(mx-fx)*.1;fy+=(my-fy)*.1;curf.style.left=fx-18+"px";curf.style.top=fy-18+"px";requestAnimationFrame(af);})();
+  document.querySelectorAll("a,button,input,select,textarea").forEach(el=>{
+    el.addEventListener("mouseenter",()=>{cur.classList.add("cursor-hover");curf.style.transform="scale(1.5)";});
+    el.addEventListener("mouseleave",()=>{cur.classList.remove("cursor-hover");curf.style.transform="scale(1)";});
+  });
+}
 
 // Nav scroll
 const nav=document.getElementById("mainNav");
@@ -756,11 +781,4 @@ function doSend(type){
       document.getElementById("cs-text").style.color="";
       document.querySelectorAll(".cs-option").forEach(o=>o.classList.remove("active"));
       document.querySelector(".cs-selected").classList.remove("chosen");
-      document.querySelectorAll(".send-btn").forEach(b=>{b.classList.remove("sent");b.querySelector(".send-label").textContent=b.classList.contains("send-tg")?"Telegram":"Email";});
-      setTimeout(()=>document.getElementById("formSuccess").style.display="none",5000);
-    },1200);
-  }
-}
-</script>
-</body>
-</html>
+      document.querySelectorAll(".send-btn").forEach(b=>{b.classList.remove("sent")
